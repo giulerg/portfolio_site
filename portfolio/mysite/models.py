@@ -8,7 +8,8 @@ class Project (models.Model):
     slug = models.SlugField(unique=True)
     github_link = models.URLField(blank=True, null=True) 
     main_image = models.ImageField(upload_to='project_images/')
-
+    created = models.DateTimeField()
+    
     def __str__(self):
         return self.title
     
