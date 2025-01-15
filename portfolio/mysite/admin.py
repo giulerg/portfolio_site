@@ -6,5 +6,15 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ('title', 'description')   
     list_filter = ('title','created')   
 
+fieldsets = (
+    (None, {
+        'fields': ('title', 'description', 'image', 'slug')
+    }),
+    ('Translations', {
+        'classes': ('collapse',),
+        'fields': ('title_ru', 'title_tr')
+    }),
+)
+
 # Регистрация модели с настройками
 admin.site.register(Project, ProjectAdmin)
